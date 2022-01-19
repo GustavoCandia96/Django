@@ -1,0 +1,29 @@
+{% extends "ProyectoWebApp/base.html" %} #Heradamos lo que se encuentra en el archivo base.html
+
+{% load static %} #Cargamos todo lo que haya en la carpeta static
+
+{% block content %}
+
+<div class="contenedorFormulario">
+
+    {% if "Exitoso" in request.GET %}
+
+    <p style="color: white;">Informacion enviada correctamente, Gracias!</p>
+
+    {% endif %}
+
+    <form action="" method="POST" style="text-align: center;">
+
+        {% csrf_token %}  
+    
+        <table style="color: white; margin: 20px auto;">{{miFormulario.as_table}}</table>
+
+        <input type="submit" value="Enviar" style="width: 150px;">
+
+    </form>
+
+</div>
+
+
+
+{% endblock %}
